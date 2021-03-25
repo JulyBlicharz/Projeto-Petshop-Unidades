@@ -8,20 +8,21 @@ import java.util.Scanner;
 
 public class Arquivo {
 
-   // private Unidade unidade;
-    List<Unidade> unidades = new ArrayList<>();
+  public void LerUnidadePetshop(Unidade unidade) throws IOException {
 
-    public void LerUnidadePetshop(Unidade unidade) throws IOException {
-
+        String nome = null;
+        String endereco = null;
+        List<Unidade> unidades = new ArrayList<>();
+        Unidade unidade = new Unidade(nome, endereco);
+       
         File file = new File("C:\\Users\\JULI\\Desktop\\petshops.csv");
         Scanner scan = new Scanner(file);
 
         while (scan.hasNext()){
             String [] petshop = scan.nextLine().split(";");
-            String nome = petshop[0].trim();
-            String endereco = petshop[1].trim();
-            unidades.add(unidade.getNome());
-            unidades.add(unidade.getEndereco());
+            nome = petshop[0].trim();
+            endereco = petshop[1].trim();
+           unidades.add(new Unidade(unidade.getNome(), unidade.getEndereco()));
         }
 
         for (Unidade unidadesLista: unidades){
