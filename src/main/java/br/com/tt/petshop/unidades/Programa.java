@@ -16,16 +16,20 @@ public class Programa {
         //Fazer um for na listaDeUniadades, inserinf cada unidade na tabela tb_unidade (id, nome, endereco)
 
         Conexao minhaConexao = new Conexao();
+        Arquivo arquivo = new Arquivo();
 
-//        Arquivo arquivo = new Arquivo();
-//
-//        arquivo.LerUnidadePetshop();
+         for (Unidade listaDeUniadades: Arquivo.LerUnidadePetshop()){
+             System.out.println(listaDeUniadades.getDescricaoUnidades());
+        }
 
         String usuario = "admin";
         String senha = "Imers40JavaAdmin";
         String url = "jdbc:postgresql://165.227.108.225:5432/db_aluno3";
         minhaConexao.conectar(url, usuario, senha);
 
+        
+        String sql = "insert into tb_unidade (nome, endereco) values ('?', '?');", // String nome String endereco;
+        minhaConexao.inserir(sql);
 
 
 
